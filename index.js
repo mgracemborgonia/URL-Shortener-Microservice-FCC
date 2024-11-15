@@ -47,8 +47,8 @@ app.post('/api/shorturl', function(req, res) {
   //res.json({ greeting: 'hello API' });
 });
 app.get('/api/shorturl/:short_url', async function(req, res){
-  const { short_url } = req.params;
-  const url_docu = await urls.findOne({short_url: +short_url});
+  const shortUrl = req.params.short_url;
+  const url_docu = await urls.findOne({short_url: +shortUrl});
   res.redirect(url_docu.url);
 })
 app.listen(port, function() {
